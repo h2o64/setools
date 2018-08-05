@@ -78,7 +78,7 @@ class QtHelpCommand(Command):
 
 
 # Library linkage
-lib_dirs = ['.', '/usr/lib64', '/usr/lib', '/usr/local/lib']
+lib_dirs = ['.', '/usr/lib64', '/usr/lib', '/usr/local/lib', '/usr/lib/x86_64-linux-gnu']
 include_dirs = []
 
 with suppress(KeyError):
@@ -125,6 +125,7 @@ ext_py_mods = [Extension('setools.policyrep.libpolicyrep', ['setools/policyrep/l
                                              '-Wno-unreachable-code',
                                              '-Wno-implicit-fallthrough',
                                              '-Wno-cast-function-type',
+                                             '-Wno-sign-compare', # libqpol generates integer comparison error
                                              '-fno-exceptions'])]
 
 setup(name='setools',
